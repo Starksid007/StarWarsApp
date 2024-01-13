@@ -79,7 +79,7 @@ class CharactersListViewModel @Inject constructor(
         viewModelScope.launch {
             _charactersListState.update {
                 it.copy(
-                    charactersList = if (query.isBlank()) {
+                    charactersList = if (query.isBlank() || query.isEmpty()) {
                         originalCharactersList
                     } else {
                         originalCharactersList.filter { chr ->
