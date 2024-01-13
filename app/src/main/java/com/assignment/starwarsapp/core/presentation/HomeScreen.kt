@@ -54,6 +54,11 @@ import com.assignment.starwarsapp.characterList.presentation.CharactersListState
 import com.assignment.starwarsapp.characterList.presentation.CharactersListViewModel
 import com.assignment.starwarsapp.core.presentation.components.CharacterItem
 
+/*
+Author: Siddharth Kushwaha
+Date: 11 Jan 2023
+*/
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomeScreen(navController: NavHostController) {
@@ -73,6 +78,11 @@ fun HomeScreen(navController: NavHostController) {
 
     val onClearSortClick: () -> Unit = {
         isClearSortVisible = !isClearSortVisible
+    }
+
+    val onSearchTextChanged: (newText: String) -> Unit = {
+        searchText = it
+        charactersListViewModel.searchCharacters("")
     }
 
 
@@ -121,10 +131,9 @@ fun HomeScreen(navController: NavHostController) {
                     onSortIconClick =  onSortIconClick,
                     isClearSortVisible = isClearSortVisible,
                     onClearSortClick = onClearSortClick,
-                    clearSortOption = clearSortOption
-                ) {
-                    searchText = it
-                }
+                    clearSortOption = clearSortOption,
+                    onSearchTextChanged = onSearchTextChanged
+                )
             }
         )
     } else {
@@ -136,10 +145,9 @@ fun HomeScreen(navController: NavHostController) {
             onSortIconClick = onSortIconClick,
             isClearSortVisible = isClearSortVisible,
             onClearSortClick = onClearSortClick,
-            clearSortOption = clearSortOption
-        ) {
-            searchText = it
-        }
+            clearSortOption = clearSortOption,
+            onSearchTextChanged = onSearchTextChanged
+        )
     }
 }
 
@@ -198,7 +206,6 @@ fun HomeContent(
                     tint = MaterialTheme.colorScheme.secondary,
                     modifier = Modifier.clickable {
                         onSearchTextChanged("")
-                        charactersListViewModel.searchCharacters(searchText)
                     }
                 )
             },
