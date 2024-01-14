@@ -12,9 +12,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.rounded.ImageNotSupported
-import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -28,21 +25,21 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import coil.compose.AsyncImagePainter
-import coil.compose.rememberAsyncImagePainter
-import coil.request.ImageRequest
-import coil.size.Size
 import com.assignment.starwarsapp.R
 import com.assignment.starwarsapp.moviesList.domain.model.Movie
 
+/*
+Author: Siddharth Kushwaha
+Date: 11 Jan 2023
+*/
+
 @Composable
-fun MovieItem (
+fun MovieItem(
     movie: Movie
-){
+) {
 
     val defaultColor = MaterialTheme.colorScheme.secondaryContainer
     var dominantColor by remember {
@@ -67,7 +64,7 @@ fun MovieItem (
         Box(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(6.dp)
+                .padding(top = 0.dp, bottom = 6.dp, start = 0.dp, end = 0.dp)
                 .height(100.dp)
                 .clip(RoundedCornerShape(8.dp))
                 .background(MaterialTheme.colorScheme.primaryContainer),
@@ -85,7 +82,7 @@ fun MovieItem (
         Text(
             modifier = Modifier.padding(start = 20.dp, end = 6.dp),
             text = movie.title,
-            color = Color.White,
+            color = MaterialTheme.colorScheme.inverseSurface,
             fontSize = 18.sp,
             maxLines = 1
         )
@@ -93,7 +90,7 @@ fun MovieItem (
         Text(
             modifier = Modifier.padding(start = 20.dp, end = 6.dp),
             text = movie.director,
-            color = Color.LightGray,
+            color = MaterialTheme.colorScheme.secondary,
             fontSize = 16.sp,
             maxLines = 1
         )
@@ -101,7 +98,7 @@ fun MovieItem (
         Text(
             modifier = Modifier.padding(start = 20.dp, end = 6.dp, bottom = 10.dp),
             text = movie.producer,
-            color = Color.LightGray,
+            color = MaterialTheme.colorScheme.secondary,
             fontSize = 14.sp,
             maxLines = 1
         )
