@@ -40,6 +40,11 @@ import com.assignment.starwarsapp.R
 import com.assignment.starwarsapp.characterList.domain.model.Character
 import com.assignment.starwarsapp.util.Screen
 
+/*
+Author: Siddharth Kushwaha
+Date: 11 Jan 2023
+*/
+
 @Composable
 fun CharacterItem(
     character: Character,
@@ -74,7 +79,7 @@ fun CharacterItem(
         Box(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(6.dp)
+                .padding(top = 0.dp, bottom = 6.dp, start = 0.dp, end = 0.dp)
                 .height(100.dp)
                 .clip(RoundedCornerShape(8.dp))
                 .background(MaterialTheme.colorScheme.primaryContainer),
@@ -93,7 +98,7 @@ fun CharacterItem(
         Text(
             modifier = Modifier.padding(start = 20.dp, end = 6.dp),
             text = character.name,
-            color = Color.White,
+            color = MaterialTheme.colorScheme.inverseSurface,
             fontSize = 18.sp,
             maxLines = 1
         )
@@ -101,7 +106,7 @@ fun CharacterItem(
         Text(
             modifier = Modifier.padding(start = 20.dp, end = 6.dp),
             text = character.gender,
-            color = Color.LightGray,
+            color = MaterialTheme.colorScheme.secondary,
             fontSize = 16.sp,
             maxLines = 1
         )
@@ -109,7 +114,7 @@ fun CharacterItem(
         Text(
             modifier = Modifier.padding(start = 20.dp, end = 6.dp, bottom = 10.dp),
             text = character.birthYear,
-            color = Color.LightGray,
+            color = MaterialTheme.colorScheme.secondary,
             fontSize = 14.sp,
             maxLines = 1
         )
