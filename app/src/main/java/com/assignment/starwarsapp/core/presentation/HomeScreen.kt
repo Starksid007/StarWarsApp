@@ -14,6 +14,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
@@ -196,7 +197,7 @@ fun HomeContent(
                 Icon(
                     imageVector = Icons.Default.Search,
                     contentDescription = null,
-                    tint = MaterialTheme.colorScheme.secondaryContainer
+                    tint = MaterialTheme.colorScheme.inverseSurface
                 )
             },
             trailingIcon = {
@@ -214,14 +215,12 @@ fun HomeContent(
                 .fillMaxWidth()
                 .padding(16.dp)
                 .background(MaterialTheme.colorScheme.surface.copy(alpha = 0.1f))
-                .shadow(shape = RoundedCornerShape(3.dp), elevation = 3.dp)
-
         )
 
         Icon(
             imageVector = Icons.Default.Sort,
             contentDescription = "sort",
-            tint = MaterialTheme.colorScheme.secondaryContainer,
+            tint = MaterialTheme.colorScheme.inverseSurface,
             modifier = Modifier
                 .padding(start = 16.dp)
                 .size(30.dp)
