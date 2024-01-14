@@ -14,6 +14,11 @@ import kotlinx.coroutines.launch
 import java.util.Arrays
 import javax.inject.Inject
 
+/*
+Author: Siddharth Kushwaha
+Date: 11 Jan 2023
+*/
+
 @HiltViewModel
 class MoviesViewModel @Inject constructor(
     private val movieRepository: MovieRepository,
@@ -32,8 +37,13 @@ class MoviesViewModel @Inject constructor(
 
     private fun getAllMovies(forceFetchFromRemote: Boolean) {
         viewModelScope.launch {
+
             _moviesState.update {
                 it.copy(isLoading = true)
+            }
+
+            _moviesState.update {
+                it.copy(characterName = characterName!!)
             }
 
             val moviesList = mutableListOf<Movie>() // Assuming Movie is the type of your movies
@@ -66,8 +76,7 @@ class MoviesViewModel @Inject constructor(
             _moviesState.update {
                 it.copy(
                     isLoading = false,
-                    movies = moviesState.value.movies + moviesList.toList(),
-                    characterName = characterName!!
+                    movies = moviesState.value.movies + moviesList.toList()
                 )
             }
         }
